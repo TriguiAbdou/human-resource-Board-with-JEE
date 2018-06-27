@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Human Resources Managing</title>
+	<link href="../../assets/css/zice.style.css" rel="stylesheet"
+		type="text/css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap.css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap-responsive.css" />
+	<script type="text/javascript" src="../../assets/js/zice.custom.js"></script>
+
+	
+	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.css"/>
+<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"/>
+<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="../../materialize/js/materialize.js"></script> 
+
+	
+	
+
+</h:head>
+<body>
+
+	<ui:include src="/facelets/header.xhtml" />
+	<ui:include src="/facelets/menu.xhtml" />
+
+	<div id="content">
+
+		<div class="inner">
+
+		  <div class="inner">	
+
+			<div class="row-fluid">
+				
+					<ui:insert name="content">
+					
+					
+					
+					<div class="row-fluid">
+                    
+                    		<!-- Widget -->
+                            <div class="topleft" style="height: 200px;width: 40%;float: left">
+                            	
+                                
+                                <div class="widget-content"><br />
+
+                                <div class="col s12 m5">
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../../assets/images/nature.jpg"></img>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><h:outputText value="#{eventBean.ev.destination}" /><i class="material-icons right">more</i></span>
+      <p><a href="#"><h:outputLabel value="#{eventBean.ev.day}" style="font-weight:900" /></a></p>
+    </div>
+    <div class="card-reveal" style="background: gray;">
+      <span class="card-title grey-text text-darken-4" >Description<i class="material-icons right">close</i></span>
+    <hr/>  <h:outputLabel value="#{eventBean.ev.description}" style="font-weight:900 ;color:black" />
+    </div>
+  </div>
+</div>
+                                <div class="chart-pie-shadow" ></div>
+                                <div class="chart_title"><span>Pages is popular  in your web</span></div>
+                                </div><!--  end widget-content -->
+                                
+                            </div><!-- widget  span6 clearfix-->
+                            <div  style="height: 200px;width: 40%; float: right">
+                            
+                                <div class="widget-header">
+                                    <span><i class="icon-calendar"></i> Booking  </span>
+                                </div><!-- End widget-header -->	
+                                <div class="widget-content"><br />
+
+                                    <h:dataTable  id="tab" var="b"
+	class="table table-bordered table-striped data_table3 "   value="#{eventBean.bookingserviceLocal.findbyEvent(eventBean.ev)}" >
+                       <h:column>
+			<f:facet name="header" >Participant </f:facet>
+			
+				<h:outputText value="#{b.user.name}">
+				
+				</h:outputText>
+			</h:column>
+		
+		
+		<h:column>
+			<f:facet name="header" >Management </f:facet>
+		     
+		</h:column>
+	
+		           </h:dataTable>
+									<br/>
+									<div class="chart_title"><span>Pages is Visitor in your web</span></div>
+                                </div><!--  end widget-content -->
+                                
+                            </div><!-- widget  span6 clearfix-->
+                    </div>
+					</ui:insert>
+
+				
+			</div></div>
+		</div>
+		<ui:include src="/facelets/footer.xhtml" />
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

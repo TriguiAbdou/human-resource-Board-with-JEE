@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/facelets/template.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+	<html>
+	<ui:define name="title">Add topic</ui:define>
+	<ui:define name="content"></ui:define>
+	<body>
+	<ui:define name="content">
+	<div class="widget-header"><span><i class="icon-bookmark"></i>Add Event</span></div>
+	<center>
+		<h:form>
+			
+			 <div class="form-group">
+                            <label style="font-weight: 800">  Event destination </label>
+                                <div>
+                                    <h:inputText value="#{eventBean.event.destination}" required="true" validatorMessage="aaaaaaa"/> 
+			</div><HR />
+			<label style="font-weight: 800">  date </label>
+                                <div>
+                                    
+                                    <p:inputMask id="date" value="#{eventBean.event.day}" mask="99/99/9999" required="true"/>
+			</div><HR />
+			
+			<label style="font-weight: 800">  Places </label>
+                                <div>
+                                    <h:inputText value="#{eventBean.event.place}" required="true" /> 
+			</div><HR />
+			
+			
+			
+                           <label style="font-weight: 800">Type</label>   
+                                    <div> 
+                                         
+         <h:selectOneRadio value="#{eventBean.event.type}"> 
+        <f:selectItem itemValue="social" itemLabel="Challenge" /> 
+	<f:selectItem itemValue="industry" itemLabel="   Conference" />  
+	<f:selectItem itemValue="industry" itemLabel="  Show" />
+	<f:selectItem itemValue="industry" itemLabel="   Team building" />  
+	</h:selectOneRadio>      
+                                 
+                  </div>   
+                  <HR />
+                  <label style="font-weight: 800">Description</label>
+                  <h:inputText value="#{eventBean.event.description}" required="true"></h:inputText>
+                  
+                  
+                                            
+                                   <HR />   
+                          
+                         
+                                                    
+              <h:commandButton action="#{eventBean.CreateEvent()}" value="Save" validateClient="true" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font>
+                                                    </h:commandButton>     
+                                                                             
+                                                    
+			</div>
+			</h:form></center>                                
+	</ui:define>
+	</body>
+</html>
+	</ui:composition>

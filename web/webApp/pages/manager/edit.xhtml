@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/facelets/template.xhtml">
+	
+	<ui:define name="content">
+	<br />
+	<div class="widget-header"><span><i class="icon-bookmark"></i>Edit Event</span></div>
+	<center>
+		<h:form>
+			
+			 <div class="form-group">
+			 
+                            <label style="font-weight: 800" >  Event destination </label>
+                                <div>
+                                    <h:inputText  value="#{eventBean.ev.destination}" /> 
+			</div><HR />
+			<label style="font-weight: 800">  Places </label>
+                                <div>
+                                    <h:inputText value="#{eventBean.ev.place}" /> 
+			</div><HR />
+			
+                           
+              
+                  <HR />
+                  <label style="font-weight: 800">Description</label>
+                  <h:inputText value="#{eventBean.ev.description}" ></h:inputText>
+                                            
+                                   <HR />                          
+                                     <HR />
+                  <h:commandButton actionListener="#{eventBean.eventserviceLocal.update(eventBean.ev)}" value="Save" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font>
+                                                    </h:commandButton>
+			</div>
+			</h:form></center>                                
+	</ui:define>
+	
+
+	</ui:composition>

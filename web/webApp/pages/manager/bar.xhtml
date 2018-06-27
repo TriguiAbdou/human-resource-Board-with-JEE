@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Human Resources Managing</title>
+	<link href="../../assets/css/zice.style.css" rel="stylesheet"
+		type="text/css" />
+		<link href="../../assets/css/zice.style.css" rel="stylesheet"
+		type="text/css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap.css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap-responsive.css" />
+	<script type="text/javascript" src="../../assets/js/zice.custom.js"></script>
+
+	
+	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.css"/>
+<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"/>
+<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="../../materialize/js/materialize.js"></script> 
+		
+		
+	
+</h:head>
+<body>
+
+	<ui:include src="/facelets/header.xhtml" />
+	<ui:include src="/facelets/menu.xhtml" />
+
+	<div id="content">
+
+		<div class="inner">
+
+			
+
+			<div class="row-fluid">
+				<div class="widget  span12 clearfix">
+
+
+
+					<ui:insert name="content">
+					
+					
+					
+					
+					<div class="row">
+			<h:form>
+			
+<h4>Commenter</h4>
+							<p:inputTextarea rows="3" cols="30"
+								value="#{eventBean.commentDescription}" /><br/>
+							<p:commandButton action="#{eventBean.commenter(identity.user,eventBean.ev,eventBean.commentDescription)}"
+								value="Commenter" update="" >
+								
+							</p:commandButton>
+<p:dataScroller id="tableee" value="#{eventBean.commentservice.getCommentByEvent(eventBean.ev)}"
+							var="comment" chunkSize="10"
+							selection="" >
+							
+
+							<f:facet name="loader">
+								<p:commandButton type="button" value="More"
+									icon="ui-icon-circle-triangle-s" />
+							</f:facet>
+
+							<h:panelGrid columns="2" style="width:50%" 
+								columnClasses="detail">
+								<p:outputPanel>
+									<h:panelGrid columns="2" cellpadding="5">
+
+										<h:outputText
+											value="#{comment.user.name}"
+											style="font-weight: bold" />
+										<br />
+										<h:outputText value="#{comment.description}" />
+
+										<p:commandLink value="supprimer"
+											action="#"
+											>
+
+										</p:commandLink>
+
+									</h:panelGrid>
+								</p:outputPanel>
+							</h:panelGrid>
+						</p:dataScroller>
+</h:form>		
+</div>
+	
+					</ui:insert>
+
+				</div>
+			</div>
+		</div>
+		<ui:include src="/facelets/footer.xhtml" />
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
