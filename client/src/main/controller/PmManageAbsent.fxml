@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.b3.esprit1718b3hrboard.app.client.controller.ControllerPmManageAbsent">
+   <children>
+      <ImageView fitHeight="564.0" fitWidth="1186.0" layoutY="57.0" opacity="0.58" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Background.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="144.0" prefWidth="900.0" style="-fx-background-color: #F0F7FF;">
+         <children>
+            <JFXButton fx:id="planning" layoutX="202.0" layoutY="94.0" onAction="#ConsulterPlanning" prefHeight="40.0" prefWidth="200.0" text="Consult your schedule" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="employees" layoutX="412.0" layoutY="94.0" onAction="#ListEmployees" prefHeight="40.0" prefWidth="200.0" text="List of employees">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="project" layoutX="612.0" layoutY="94.0" onAction="#ListProjects" prefHeight="40.0" prefWidth="164.0" text="List of projects">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="newProject" layoutX="776.0" layoutY="94.0" onAction="#CreateNewProject" prefHeight="40.0" prefWidth="218.0" text="Create a new project">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </JFXButton>
+            <AnchorPane prefHeight="86.0" prefWidth="1174.0" style="-fx-background-color: #eaebed;" />
+            <JFXButton layoutX="1010.0" layoutY="94.0" onAction="#Disconnect" prefHeight="40.0" prefWidth="157.0" text="Log out">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font></JFXButton>
+            <JFXButton layoutX="21.0" layoutY="94.0" onAction="#Home" prefHeight="40.0" prefWidth="164.0" text="Home">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="27.0" layoutY="294.0" prefHeight="30.0" prefWidth="330.0" text="What do you want to do ?" textFill="#400505">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="prolonger" layoutX="81.0" layoutY="339.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="330.0" text="extend the duration of the project">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="affecter" layoutX="77.0" layoutY="384.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="366.0" text="Affect another employee to the project">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></RadioButton>
+      <JFXButton fx:id="validate" layoutX="192.0" layoutY="436.0" onAction="#ValidateChoice" prefHeight="40.0" prefWidth="111.0" style="-fx-background-color: #c8e2f4;" text="Validate">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="durationFT" layoutX="755.0" layoutY="186.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXTextField>
+      <Label fx:id="labduration" layoutX="634.0" layoutY="186.0" prefHeight="30.0" prefWidth="104.0" text="Duration :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <JFXButton fx:id="updatebtn" layoutX="971.0" layoutY="186.0" onAction="#updateDuration" prefHeight="33.0" prefWidth="126.0" style="-fx-background-color: #c8e2f4;" text="Update">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <TableView fx:id="TableEmployees" layoutX="558.0" layoutY="303.0" prefHeight="207.0" prefWidth="551.0">
+        <columns>
+          <TableColumn fx:id="matricule1" prefWidth="158.0" text="registration number" />
+          <TableColumn fx:id="Firstname1" prefWidth="145.0" text="First name" />
+          <TableColumn fx:id="Lastname1" prefWidth="136.0" text="Last name" />
+          <TableColumn fx:id="post1" prefWidth="111.0" text="Post" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="affect" layoutX="755.0" layoutY="519.0" onAction="#affecterEmployees" prefHeight="33.0" prefWidth="166.0" style="-fx-background-color: #c8e2f4;" text="Affect">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <Label fx:id="attention" layoutX="114.0" layoutY="495.0" prefHeight="26.0" prefWidth="279.0" textFill="#fc0000">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Label>
+      <Label fx:id="affectLab" layoutX="706.0" layoutY="547.0" prefHeight="40.0" prefWidth="414.0" textFill="#0c0875">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Label>
+      <Label fx:id="access" layoutX="34.0" layoutY="568.0" prefHeight="33.0" prefWidth="614.0" text="Sorry!you can't consult this space !Reserved just for employees !Thank you " textFill="#f20000">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="chooce" layoutX="570.0" layoutY="252.0" prefHeight="40.0" prefWidth="551.0" text="choose the employees you want to be assigned to the project :" textFill="#400505">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
