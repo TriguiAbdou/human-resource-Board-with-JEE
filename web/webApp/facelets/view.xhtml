@@ -1,0 +1,133 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/facelets/template.xhtml">
+	<ui:define name="title">Topic</ui:define>
+	<ui:define name="content">
+	   <h:form id="demovalidation">
+		    <div class="widget-header">
+              	<span><i class="icon-bookmark"></i>Selected topic</span>
+            </div>	
+            
+	    		<div class="formEl_b">	
+               		 
+      	   				<fieldset>
+           					<legend>Question :</legend>
+           						
+                          		<div class="section">
+                          		    	<center>
+                          		    	<h4><img src="../assets/images/icon/color_18/info.png"/>
+                          		    	<h:outputText value="Topic :" /><h:outputText value="#{topicBean.topiccc.stateTopic}" />
+                          		    	 </h4>
+                          		    	
+                          		   
+                          			<br class="clear" />
+                               		<h4> <img src="../assets/images/icon/color_18/administrator.png" /> <h:outputText value="#{topicBean.topiccc.employee.name}" /><h:outputText value=" #{topicBean.topiccc.employee.lastName}" /></h4>
+                               		<br class="clear" />
+                               		<img src="../assets/images/icon/color_18/calendar.png" title="#{topicBean.topiccc.date}" />  <h:outputText value=" publish date :" /> <h:outputText value="#{topicBean.publishdatee(topicBean.topiccc.date)}" />
+                                	</center>
+                                </div>
+                                <br class="clear" />
+                                 	<p:fieldset style="margin-bottom:20px">
+                                 	
+                                 	<h2><h:outputText value="#{topicBean.topiccc.title}" /><h:outputText value=" ?" /></h2>
+                                  	<h3><h:outputText value="#{topicBean.topiccc.text}" class="text-search-data"/> </h3>
+                                    <br class="clear" />
+                                    <h4><i><h:outputText value="Keywords :" class="text-search-data"/> <h:outputText value="#{topicBean.topiccc.keywords}" class="text-search-data"/></i></h4>
+                                	</p:fieldset>
+                                 
+                                 
+                    <h:dataTable  id="tab" class="table table-bordered table-striped data_table3 " value=""  >
+                  		<h:column>
+							<center>
+								<h:commandLink value="#{topicBean.topiccc.nbLike}" class="uibutton normal">
+									<img src="../assets/images/icon/color_18/hand_thumbsup.png" /> 
+								</h:commandLink>
+								<h:commandLink value="Like" class="uibutton " action="#{topicBean.doLike(topicBean.topiccc)}">
+									<img src="../assets/images/icon/color_18/hand_thumbsup.png" /> 
+								</h:commandLink>
+							</center>
+			  	  		</h:column>
+		      	  		<h:column>
+							<center>
+								<h:commandLink value="#{topicBean.topiccc.nbDislike}" class="uibutton normal">
+									<img src="../assets/images/icon/color_18/hand_thumbsdown.png" /> 
+								</h:commandLink>
+								
+								<h:commandLink value="Dislike" class="uibutton special" action="#{topicBean.doDislike(topicBean.topiccc)}">
+									<img src="../assets/images/icon/color_18/hand_thumbsdown.png" /> 
+								</h:commandLink>
+							</center>
+		      	   		</h:column>
+		      	   		<h:column>
+							<center>
+								<h:commandLink value="Signaler" class="uibutton normal large" action="#{topicBean.testsignale(topicBean.topiccc)}">
+									<img src="../assets/images/icon/color_18/hammer.png" /> 
+								</h:commandLink>
+							</center>
+			  	   		</h:column>
+			  	   		<h:column>
+					   		<center>
+								<h:commandLink value="#{topicBean.topiccc.nbVue}" class="uibutton normal large">
+									<img src="../assets/images/icon/color_18/eye.png" /> 
+								</h:commandLink>
+							</center>
+			 	    	</h:column>
+			 	    </h:dataTable>
+                            
+           				</fieldset>
+           				   
+        		</div>
+        		<div class="formEl_b">	
+               		
+      	   				<fieldset >
+           					<legend>Comments :</legend>
+           					<div class="section">
+           						<h:dataTable  id="taba" var="commenttt" class="table table-bordered table-striped data_table3 " value="#{commentBean.listcommentaire(topicBean.topiccc)}" >
+				                  <h:column>
+										<f:facet name="header" >publisher</f:facet>
+										<center>
+											<img src="../assets/images/icon/color_18/administrator.png" /><h:outputText value="#{commenttt.publisher}"/>
+											<br class="clear" />
+											<br class="clear" />
+											<img src="../assets/images/icon/color_18/calendar.png" title="#{commenttt.date}"/><h:outputText value=" #{commenttt.date}"/>
+										</center>
+							  	  </h:column>
+						      	  <h:column>
+										<f:facet name="header" >Comment</f:facet>
+										<h4><h:outputText value="#{commenttt.text}"  /></h4>
+						      	   </h:column>
+							  	   <h:column>
+									    <f:facet name="header" >Like </f:facet>
+									   <center> <h:commandLink value="#{commenttt.nbLike}" class="uibutton normal" action="#{commentBean.DoLike(commenttt)}">
+									<img src="../assets/images/icon/color_18/hand_thumbsup.png" /> 
+								</h:commandLink></center>
+							 	    </h:column>
+							        <h:column>
+									    <f:facet name="header" >Dislike </f:facet>
+										<center><h:commandLink value="#{commenttt.nbDislike}" class="uibutton normal" action="#{commentBean.DoDislike(commenttt)}">
+									<img src="../assets/images/icon/color_18/hand_thumbsdown.png" /> 
+								</h:commandLink></center>
+							  	    </h:column>
+							  		<h:column>
+										<f:facet name="header" >State</f:facet>
+										<center><img src="../assets/images/icon/color_18/info.png"/><h:outputText value=" #{commenttt.state}"  /></center>
+							  	   </h:column>
+					
+						   		</h:dataTable>
+						    <br class="clear" />
+						    <br class="clear" />
+						    <center>	<div > <h:inputTextarea value="#{commentBean.comment.text}" name="Textareaelastic" id="Textareaelastic"  class="large"  cols="" rows="" title="add a comment"></h:inputTextarea></div>   
+						   	<br class="clear"/>
+						    
+						   	<h:commandButton action="#{commentBean.createComment(topicBean.topiccc)}" value="publish" class="uibutton"/></center>	
+           					</div>
+           				</fieldset>
+           					   
+        		</div>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>

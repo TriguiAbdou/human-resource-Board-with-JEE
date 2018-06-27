@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title><ui:insert name="title" /></title>
+	<link href="../assets/css/zice.style.css" rel="stylesheet"
+		type="text/css" />
+	<link type="text/css" rel="stylesheet"
+		href="../assets/components/bootstrap/bootstrap.css" />
+	<link type="text/css" rel="stylesheet"
+		href="../assets/components/bootstrap/bootstrap-responsive.css" />
+	<script type="text/javascript" src="../assets/js/zice.custom.js"></script>
+<!--   <script type="text/javascript" src="../assets/components/ui/jquery.ui.min.js"></script>  -->
+<!--   <script type="text/javascript" src="../assets/js/jquery.min.js"></script> -->
+</h:head>
+<body>
+
+	<ui:include src="../facelets/header.xhtml" />
+	<ui:include src="../facelets/menu.xhtml" />
+
+	<div id="content">
+
+		<div class="inner">
+
+			<div class="row-fluid">
+				<div class="span12 clearfix">
+					<ul id="shortcut" class="clearfix">
+						<li><a href="home.jsf" title="Home"> <img
+								src="../assets/images/icon/shortcut/home.png" alt="home" /><strong>Home</strong>
+						</a></li>
+						
+						 <li> <a href="#" title="Setting" > <img src="../assets/images/icon/shortcut/setting.png" alt="setting" /><strong>Setting</strong></a> </li> 
+
+						<li><a href="#" title="Your profile"> <img
+								src="../assets/images/avatar.png" alt="Profile" /><strong>Your profile</strong></a>
+							</li>
+							
+						<li><a href="login.jsf" title="Logout"> <img
+							src="../assets/images/logout5.png" alt="Logout" /><strong>Logout</strong></a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="widget  span12 clearfix">
+
+
+					<ui:insert name="content"></ui:insert>
+
+				</div>
+			</div>
+		</div>
+		<ui:include src="../facelets/footer.xhtml" />
+	</div>
+
+</body>
+</html>

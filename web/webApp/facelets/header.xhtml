@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<div id="header" style="z-index: 47;">
+                <ul id="account_info" class="pull-right"> 
+                    <li><img src="../assets/images/avatar.png" alt="Online"/></li>
+                    <li class="setting">
+                        Welcome, <b class="red"><h:outputText value="#{identity.user.name}" />  </b>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+
+</h:form>
+</body> 
+</html>

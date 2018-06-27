@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/facelets/template.xhtml">
+	
+	<ui:define name="content">
+	<div class="row-fluid">
+				
+					<div class="logo"></div>
+					<ul id="shortcut" class="clearfix">
+						
+			
+						<li><a href="#" title="Back To home"> <img
+								src="../assets/images/icon/shortcut/home.png" alt="home" /><strong>Home</strong>
+						</a></li>
+
+					</ul>
+				
+			</div>
+	                                      
+	<div class="widget-header"><span><i class="icon-bookmark"></i>Events</span></div>
+	<h:dataTable  id="tab" var="eventt"
+	class="table table-bordered table-striped data_table3 "   value="#{eventBean.eventserviceLocal.findAll()}" >
+                       <h:column>
+			<f:facet name="header" >Date </f:facet>
+			
+				<h:outputText value="#{eventt.day}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</h:column>
+		<h:column>
+			<f:facet name="header" >Destination </f:facet>
+			<h:outputText value="#{eventt.destination}"  />
+		</h:column>
+		<h:column>
+			<f:facet name="header" >Description </f:facet>
+			<h:outputText value="#{eventt.description}"  />
+		</h:column>
+		<h:column>
+			<f:facet name="header" >Place </f:facet>
+			<h:outputText value="#{eventt.place}"  />
+		</h:column>
+		<h:column>
+			<f:facet name="header" >State </f:facet>
+			<h:outputText value="#{eventt.state}"  />
+		</h:column>
+		<h:column>
+			<f:facet name="header" >Management </f:facet>
+		          <p:commandLink title="View Detail"
+										action="#{eventBean.Detail()}">
+										<img src="../assets/images/icon/icon_edit.png" />
+										<f:setPropertyActionListener value="#{eventt}"
+											target="#{eventBean.ev}" />
+									</p:commandLink> 
+                 
+            
+				
+              
+		</h:column>
+		
+	
+		           </h:dataTable>
+	</ui:define>
+	</ui:composition>

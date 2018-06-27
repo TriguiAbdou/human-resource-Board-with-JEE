@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Human Resources Managing</title>
+	<link href="../../assets/css/zice.style.css" rel="stylesheet"
+		type="text/css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap.css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap-responsive.css" />
+	<script type="text/javascript" src="../../assets/js/zice.custom.js"></script>
+<!--   <script type="text/javascript" src="../../assets/components/ui/jquery.ui.min.js"></script>  -->
+<!--   <script type="text/javascript" src="#{request.contextPath}/#{request.contextPath}/assets/js/jquery.min.js"></script> -->
+<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.css"/>
+<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"/>
+<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="../../materialize/js/materialize.js"></script> 
+</h:head>
+<body>
+
+	<ui:include src="/facelets/header.xhtml" />
+	<ui:include src="/facelets/menu.xhtml" />
+
+	<div id="content">
+
+		<div class="inner">
+
+			
+
+			<div class="row-fluid">
+				<div class="widget  span12 clearfix">
+
+
+
+					<ui:insert name="content">
+					
+					
+					
+					
+					<div class="row"><br/>
+					
+<div class="col s12 m5">
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../../assets/images/nature.jpg"></img>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><h:outputText value="#{eventBean.ev.destination}" /><i class="material-icons right">more</i></span>
+      <p><a href="#"><h:outputLabel value="#{eventBean.ev.day}" style="font-weight:900" /></a></p>
+    </div>
+    <div class="card-reveal" style="background: gray;">
+      <span class="card-title grey-text text-darken-4" >Description<i class="material-icons right">close</i></span>
+    <hr/>  <h:outputLabel value="#{eventBean.ev.description}" style="font-weight:900 ;color:black" />
+    </div>
+  </div>
+</div></div>
+	<li>
+						<p:commandLink  action="#{eventBean.CreateBooking(identity.user)}" title="remove" >
+             <img src="../../assets/images/icon/user_.png" />
+				
+				</p:commandLink><hr/></li>
+				<li>
+						<p:commandLink  action="#{eventBean.Like()}" title="Like" >
+             <img src="../../assets/images/icon/color_18/hand_thumbsup.png" />
+				
+				</p:commandLink><h:outputLabel value="#{eventBean.ev.nbrLike}" style="font-weight:900" /><hr/></li>
+				<li>
+						<p:commandLink  action="#{eventBean.disLike()}" title="Like" >
+             <img src="../../assets/images/icon/color_18/hand_thumbsdown.png" />
+				
+				</p:commandLink><h:outputLabel value="#{eventBean.ev.nbrDislike}" style="font-weight:900" /><hr/></li>
+						
+	
+					</ui:insert>
+
+				</div>
+			</div>
+		</div>
+		<ui:include src="/facelets/footer.xhtml" />
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

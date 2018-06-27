@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:head>
+		<meta charset="utf-8"/>
+        <title>Authentication</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" href="../assets/components/bootstrap/bootstrap.css"  />
+		<link href="../assets/css/zice.style.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+        html {
+            background-image: none;
+        }
+		body{
+			background-position:0 0;
+		}
+		
+		#content{
+		position:absolute;
+		top: 50%;
+		left: 50%;
+		width:30em;
+		height:30em;
+		margin-top: -9em; /*set to a negative number 1/2 of your height*/
+		margin-left: -15em; /*set to a negative number 1/2 of your width*/
+	    border: 5px #f4f4f4 solid;
+    	min-width: 200px;
+    	border-radius: 30px;
+    	}
+		 </style>
+
+	</h:head>
+	
+	<body>
+	<div id="content">
+		
+		<center>
+        	<h3>Create account</h3>
+           <h:form id="createaccPage" method="post" action="">
+                <div class="tip">
+                     <h:outputText value="email:" />
+                     <h:inputText name="email_acc" type="text" class="inputtext"  placeholder="Email"  title="Email"   />
+                </div>
+                <div class="tip">
+               		 <h:outputText value="First name: :" />
+                      <h:inputText name="fname_acc"  type="text" class="inputtext"  placeholder="First name" title="First name"  />
+                </div>
+                <div class="tip">
+                      <h:outputText value="Last name: :" />
+                      <h:inputText name="lname_acc"  type="text" class="inputtext" placeholder="Last name" title="Last name"   />
+                </div>
+                <div class="tip">
+                		<h:outputText value="password :" />
+                      <h:inputText name="password_acc" type="text" class="inputtext" placeholder="Password" title="Password"  />
+                </div>
+                <div class="tip">
+                	  <h:outputText value="birth date :" />	
+                      <h:inputText name="birthday_acc"  type="text" class="inputtext"  placeholder="Date of Birth"  title="Date of Birth"  />
+                </div>
+                <div class="loginButton" align="center">
+                       <i class="icon-caret-left" ></i> <h:commandButton action="login?faces-redirect = true" class="btn" id="backLogin" value="Back"/>
+                       <i class="icon-unlock"></i><h:commandButton class="btn btn-danger white " action="#" value="Regester" /> 
+                </div>
+         </h:form>
+        
+     	
+		</center>
+         
+	</div>
+	
+	</body>
+	
+	
+	
+	
+</html>

@@ -1,0 +1,77 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/facelets/template.xhtml">
+	<ui:define name="title">Update topic</ui:define>
+	<ui:define name="content">
+	    <div class="widget-header"><span><i class="icon-bookmark"></i>Update Topic</span></div>
+	    	<h:form>
+	    		<div class="formEl_b">	
+               		 
+      	   				<fieldset >
+           					<legend>Options</legend>
+      	   						<div class="section">
+               						<label> Category <small>subject depends on your current project ?</small></label>   
+	               					<div>
+					                <!--    <div class="radiorounded">
+					                      <input type="radio"  id="radioround" name="gender"  checked="checked"  value="#{topicBean.topic.dependency}" /><label for="radioround" title="depends"></label>
+					                   </div>
+					                   <div class="radiorounded">
+					                       <input type="radio"  id="radioround2" name="gender"  value="#{topicBean.topic.dependency}"/><label for="radioround2" title="independent"></label>
+					                   </div> -->
+					                   
+								       <h:selectOneRadio value="#{topicBean.topiccc.dependency}" >
+											<f:selectItem itemValue="dependent" itemLabel="dependent" />
+										   	<f:selectItem itemValue="independent" itemLabel="  independent"  />
+										</h:selectOneRadio>
+						               </div>
+           						</div>
+           
+					           <div class="section">
+					               <label>Grace period <small>from this period the subject will be deleted if has no answer</small></label>   
+					                     <div>
+					                          <h:selectOneMenu value="#{topicBean.topiccc.note}">               
+    												<f:selectItem itemLabel="One day" itemValue="1" />
+    												<f:selectItem  itemLabel="Two days" itemValue="2" />
+    												<f:selectItem  itemLabel="Three days" itemValue="3" />
+    												<f:selectItem  itemLabel="Four days" itemValue="4" />
+    												<f:selectItem  itemLabel="Five days" itemValue="5" />
+    												<f:selectItem  itemLabel="Six days" itemValue="6" />
+    												<f:selectItem  itemLabel="Seven days" itemValue="7" />
+    												<f:selectItem  itemLabel="Eight days" itemValue="8" />
+    												<f:selectItem  itemLabel="Nine days" itemValue="9" />
+											  </h:selectOneMenu>       
+					  					 </div>
+					      	   </div>
+      	  				 </fieldset>
+      	   			
+      	   		</div>  
+      	   <div class="formEl_b">	
+            
+      	   			<fieldset >
+           				<legend>Subject</legend>
+      	   					<div class="section" >
+               					<label> Title <small>Text custom</small></label>   
+                     			<div> <h:inputText   name="text[]" class=" full" value="#{topicBean.topiccc.title}" /></div>
+           					</div>
+           					<div class="section">
+                                 <label> topic  <small>Elastic</small></label>   
+                                 <div > <h:inputTextarea name="Textareaelastic" id="Textareaelastic"  class="large" value="#{topicBean.topiccc.text}" ></h:inputTextarea></div>   
+                            </div>
+                          <div class="section">
+                                 <label> Keywords <small>Text custom</small></label>   
+                                 <div> <h:inputText  class=" large" value="#{topicBean.topiccc.keywords}" /></div>
+                          </div>
+                          
+           			</fieldset>  	 
+           </div>  
+           <center>
+            <h:commandButton actionListener="#{topicBean.doUpdate(topicBean.topiccc)}" value="save" class="uibutton"/>
+        	</center>
+        </h:form>
+      
+	</ui:define>
+	
+</ui:composition>

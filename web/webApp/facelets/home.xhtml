@@ -1,0 +1,76 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/facelets/template.xhtml">
+	<ui:define name="title">login</ui:define>
+	<ui:define name="content">
+		<h1></h1>
+	<div class="row-fluid">
+                    
+                          <div class="span6">
+                            <div class="widget  clearfix">
+
+                                <div class="widget-header">
+                                    <span><i class="icon-rss"></i> Notification</span>
+                                </div><!-- End widget-header -->	
+                                
+                                <div class="widget-content">
+                                	<h:dataTable  id="tab1" var="top" class="table table-bordered table-striped data_table3 " value="#{topicBean.listNotif()}" >
+                                       <h:column>
+                                      <p:panel id="basic" header="#{top.type}" footer="" style="margin-bottom:20px">
+        									<h:panelGrid columns="2" cellpadding="10">
+          										 
+          										  	<img src="../assets/images/icon/color_18/mail.png" />
+         										  	<h:form> 
+         										  	<h:outputText value="#{top.employee.lastName} #{topicBean.msgg(top)} (#{top.topic.title})" />
+        											<span class="tip" ><h:commandLink value="" class="pop_box" action="#{topicBean.Dodelete1(top)}" ><img src="../assets/images/icon/color_18/close.png" title="Delete"/></h:commandLink></span>
+        										</h:form>
+        									</h:panelGrid>
+    								  </p:panel>
+    								  </h:column>	
+                               </h:dataTable>  
+   
+                                      
+                                </div><!--  end widget-content -->
+                                
+                            </div><!-- widget  clearfix -->
+                            </div><!-- span4 -->
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            <div class="span6">
+                            <div class="widget  clearfix">
+
+                                <div class="widget-header">
+                                    <span><i class="icon-rss"></i> Recommended for you</span>
+                                </div><!-- End widget-header -->	
+                                
+                                <div class="widget-content">
+                                
+                                <h:dataTable  id="tab" var="topicccc" class="table table-bordered table-striped data_table3 " value="#{topicBean.recommandedList()}" >
+                                       <h:column>
+                                      <p:panel id="basic" header="#{topicccc.title} #{topicBean.resoTopic(topicccc)} #{topicBean.stateTopic1(topicccc)}" footer="#{topicBean.publishdatee(topicccc.date)}" style="margin-bottom:20px">
+        									<h:panelGrid columns="2" cellpadding="10">
+          										  <img src="../assets/images/icon/color_18/administrator.png" />
+         										   <h:outputText value="#{topicccc.text}" />
+        									</h:panelGrid>
+    								  </p:panel>
+    								  </h:column>	
+                               </h:dataTable>           
+                                </div><!--  end widget-content -->
+                                
+                            </div><!-- widget  clearfix -->
+                            </div><!-- span4 -->
+                            
+                    </div><!-- row-fluid -->      
+                
+                 	 
+	</ui:define>
+	
+	</ui:composition>

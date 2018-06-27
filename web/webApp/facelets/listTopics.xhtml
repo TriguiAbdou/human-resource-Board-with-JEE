@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      template="/facelets/template.xhtml">
+	<ui:define name="title">Forum</ui:define>
+	<ui:define name="content">
+	   <h:form>
+              <div class="widget-header"><span><i class="icon-bookmark"></i>LIst of your topics</span></div>
+			  
+			  
+			  <h:dataTable  id="tab" var="topicc" class="table table-bordered table-striped data_table3 " value="#{topicBean.listTopicEmployee()}" >
+                  <h:column>
+						<f:facet name="header" >publish date</f:facet>
+						<center><h:outputText value="#{topicc.date}">
+						</h:outputText></center>
+			  	  </h:column>
+		      	  <h:column>
+						<f:facet name="header" >Toppics</f:facet>
+						<h4> <h:outputText value="#{topicc.title}"  /></h4> 
+		      	   </h:column>
+		      	   <h:column>
+						<f:facet name="header" >Response</f:facet>
+						<center><h:outputText value="#{topicc.nbResponse}"  /></center>
+			  	   </h:column>
+			  	   <h:column>
+					    <f:facet name="header" >Views </f:facet>
+					   <center> <h:outputText value="#{topicc.nbVue}"  /></center>
+			 	    </h:column>
+			        <h:column>
+					    <f:facet name="header" >Like </f:facet>
+						<center><h:outputText value="#{topicc.nbLike}"  /></center>
+			  	    </h:column>
+			  	    <h:column>
+					    <f:facet name="header" >Dislike </f:facet>
+						<center><h:outputText value="#{topicc.nbDislike}"  /></center>
+			  	    </h:column>
+			  	    <h:column>
+					    <f:facet name="header" >State </f:facet>
+						<center><h:outputText value="#{topicc.state}"  /><img src="../assets/images/icon/color_18/checkmark2.png" /></center>
+			  	    </h:column>
+			  		<h:column>
+				        <f:facet name="header" > </f:facet>
+						  	<center>
+						   <span class="tip" ><h:commandLink value="" class="pop_box" action="#{topicBean.Dodelete(topicc)}" ><img src="../assets/images/icon/color_18/close.png" title="Delete"/></h:commandLink></span> 				
+						   <span class="tip" ><h:commandLink  value="" action="updateTopic.jsf" class="pop_box" ><img src="../assets/images/icon/color_18/pencil.png" title="Update"/><f:setPropertyActionListener value="#{topicc}"
+											target="#{topicBean.topiccc}" /></h:commandLink></span> 				
+			 				</center>
+			 		</h:column>
+	
+		   		</h:dataTable>
+		</h:form>
+	</ui:define>
+	
+</ui:composition>
