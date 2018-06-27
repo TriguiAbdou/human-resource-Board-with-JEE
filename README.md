@@ -1,4 +1,4 @@
-# human-resource-Board-with-JEE-EJB-JSF-
+# human-resource-Board-with-JEE
 A desktop and web application for human resources management 
 Technology :
   Application server: WildFly
