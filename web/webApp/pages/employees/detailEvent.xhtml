@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title>Human Resources Managing</title>
+	<link href="../../assets/css/zice.style.css" rel="stylesheet"
+		type="text/css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap.css" />
+	<link type="text/css" rel="stylesheet"
+		href="../../assets/components/bootstrap/bootstrap-responsive.css" />
+	<script type="text/javascript" src="../../assets/js/zice.custom.js"></script>
+
+	
+	<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.css"/>
+<link type="text/css" rel="stylesheet" href="../../materialize/css/materialize.min.css"/>
+<script type="text/javascript" src="../../materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="../../materialize/js/materialize.js"></script> 
+
+	
+	
+
+</h:head>
+<body>
+
+	<ui:include src="/facelets/header.xhtml" />
+	<ui:include src="/facelets/menu.xhtml" />
+
+	<div id="content">
+
+		<div class="inner">
+
+		  <div class="inner">	
+
+			<div class="row-fluid">
+				
+					<ui:insert name="content">
+					
+					
+					
+					<div class="row-fluid">
+                    
+                    		<!-- Widget -->
+                            <div class="topleft" style="height: 300px;width: 30%;float: left">
+                            	
+                                
+                                <div class="widget-content"><br />
+
+                                <div class="col s12 m5">
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="../../assets/images/logo.png" style="height: 50%"></img>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><h:outputText value="#{eventBean.ev.destination}" /><i class="material-icons right">more</i></span>
+      <p><a href="#"><h:outputLabel value="#{eventBean.ev.day}" style="font-weight:900; color:Crimson" /></a></p>
+    </div>
+    <div class="card-reveal" style="background: LightGray;">
+      <span class="card-title grey-text text-darken-4" ><i class="icon-edit"></i>Description<i class="material-icons right">close</i></span>
+    <hr/>  <h:outputLabel value="#{eventBean.ev.description}" style="font-weight:900 ;color:black" />
+    </div>
+  </div>
+</div>
+                                <div class="chart-pie-shadow" ></div>
+                                
+                                </div><!--  end widget-content -->
+                                
+                            </div><!-- widget  span6 clearfix-->
+                            <div  style="height: 200px;width: 40%; float: right">
+                            
+                                <div class="widget-header">
+                                <HR />
+                                    <h6><i class="icon-calendar"></i> My booking  </h6>
+                                </div><!-- End widget-header -->	
+                                <div class="widget-content"><br />
+
+                                    <h:dataTable  id="tab" var="b"
+	class="table table-bordered table-striped data_table3 "   value="#{eventBean.bookingserviceLocal.findMyBooking(eventBean.ev,identity.user)}" >
+                       <h:column>
+			<f:facet name="header" >Participant </f:facet>
+			
+				<h:outputText value="#{b.user.name}">
+				
+				</h:outputText>
+			</h:column>
+		
+		
+		<h:column>
+			<f:facet name="header" >Management </f:facet>
+		     <p:commandLink  action="#{eventBean.Cancel(b)}" value="cancel the reservation" >
+             <img src="#{request.contextPath}/assets/images/icon/icon_delete.png" />
+				</p:commandLink>
+		</h:column>
+	
+		           </h:dataTable>
+									<br/>
+									<!--  end widget-content -->
+                                
+                            </div><!-- widget  span6 clearfix-->
+                            
+                    </div><hr/>
+                                             <div  style="height: 200px;width: 40%; float: right">
+                            
+                                <div class="widget-header">
+                                    <h6><i class="icon-ok"></i>Like/Dislike</h6>
+             <p:commandLink  action="#{eventBean.Liked(identity.user,eventBean.ev)}" title="Like" ><img src="../../assets/images/icon/color_18/hand_thumbsup.png" /></p:commandLink>
+             <p:commandLink  action="#{eventBean.Disliked(identity.user,eventBean.ev)}" title="Dislike" >
+             <img src="../../assets/images/icon/color_18/hand_thumbsdown.png" /></p:commandLink>
+             
+                                </div><!-- End widget-header -->	
+                                <div class="widget-content"><br />
+
+                                    <h:dataTable  var="l"
+	class="table table-bordered table-striped data_table3 "  style="width: 20%" value="#{eventBean.ev}" >
+                       <h:column>
+			<f:facet name="header" > Like </f:facet>
+			
+				<h:outputText value="#{eventBean.likeEventservice.CalculLike(eventBean.ev)}">
+				
+				</h:outputText>
+			</h:column>
+		
+		
+		<h:column>
+			<f:facet name="header" >Dislike </f:facet>
+		    <h:outputText value="#{eventBean.likeEventservice.CalculDislike(eventBean.ev)}">
+				
+				</h:outputText> 
+		</h:column>
+	
+		           </h:dataTable>
+									<br/>
+									<!--  end widget-content -->
+                                
+                            </div><!-- widget  span6 clearfix-->
+                            
+                    </div></div>
+                    <br /><hr /><br/><hr/>
+                    <h:form>
+      <h6><i class="icon-ok"></i>Comments</h6>
+        <p:inputTextarea rows="3" cols="30" id="ddd"
+								value="#{eventBean.commentDescription}" /><br/>						
+		<center><p:commandButton action="#{eventBean.commenter(identity.user,eventBean.ev,eventBean.commentDescription)}"
+								value="Commenter"  >
+								
+							</p:commandButton>
+				</center>				
+							
+   <p:dataScroller id="tableee" value="#{eventBean.commentservice.getCommentByEvent(eventBean.ev)}"
+							var="comment" chunkSize="5"
+							>
+							
+
+							<f:facet name="loader">
+								<p:commandButton type="button" value="More"
+									icon="ui-icon-circle-triangle-s" />
+							</f:facet>
+
+							<h:panelGrid columns="2" style="width:50%" 
+								columnClasses="detail">
+								<p:outputPanel style="background: Gainsboro;">
+									<h:panelGrid columns="2" cellpadding="5">
+
+										<h:outputText
+											value="#{comment.user.name}"
+											style="font-weight: bold;color:Crimson;font-size: large;" />
+										<br />
+										<h:outputText value="#{comment.description}"  /><br />
+										
+										
+										<h:outputText value="#{eventBean.detaillerDate(comment.date)}" style="font-size: x-small;"  />
+										<p:commandLink  action="#{eventBean.commentservice.delete(comment)}" title="remove"  >
+             <img src="#{request.contextPath}/assets/images/icon/icon_delete.png" />
+				</p:commandLink>
+
+									</h:panelGrid>
+								</p:outputPanel>
+							</h:panelGrid>
+						</p:dataScroller></h:form>
+                    </ui:insert>
+
+				
+			</div></div>
+		</div>
+		<ui:include src="/facelets/footer.xhtml" />
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
